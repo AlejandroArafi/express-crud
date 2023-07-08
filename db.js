@@ -1,0 +1,1 @@
+[{"id":1,"marca":"Gibson","modelo":"Les Paul","precio":5000,"cantidad":3}]
