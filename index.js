@@ -3,6 +3,7 @@
 //asi se puede usar express
 const express = require('express')
 const fs = require('fs-extra')
+const cors = require('cors')
 
 //aqui se ejecuta
 const app = express()
@@ -10,6 +11,7 @@ const PORT =process.env.PORT || 4000
 
 //middleware
 app.use(express.json())
+app.use(cors())
 
 // 1. Crear un endpoint que devuelva todos los productos
 
@@ -22,6 +24,16 @@ app.use(express.json())
 // 5. Crear un endpoint que elimine un producto
 
 // 1. Crear un endpoint que devuelva todos los productos 
+
+
+app.post('/usuario', (req, res)=> {
+   console.log(req.body)
+}
+)
+
+
+
+
 app.get('/productos', (req, res)=> {
     fs.readFile('./db.js', 'utf8', (err, data)=> {
         if(err) {
@@ -135,6 +147,9 @@ app.put('/productos/:id', (req, res)=>{
     })
 
 
+
+
 app.listen(PORT, ()=> {
     console.log(`servidor escuchando en el puerto ${PORT}`)
 })
+
